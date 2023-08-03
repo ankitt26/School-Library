@@ -13,6 +13,10 @@ class Person < Nameable
     @rentals = []
   end
 
+  def add_rental(rental)
+    rentals << rental unless rentals.include?(rental)
+  end
+
   def correct_name
     @name
   end

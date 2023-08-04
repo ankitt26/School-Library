@@ -60,7 +60,6 @@ class App
     print 'Does the student have parent permission? [Y/N]: '
     parent_permission = gets.chomp.upcase
 
-
     student = Student.new(age, name, parent_permission)
     @people << student
 

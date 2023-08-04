@@ -108,4 +108,16 @@ class App
     person_id = gets.chomp.to_i
     get_rental(person_id)
   end
+
+  def get_rental(person_id)
+    rentals = @rentals.select { |rental| rental.person.id == person_id }
+    if rentals.empty?
+      puts 'No rentals found for the specified person ID.'
+    else
+      puts 'Rentals:'
+      rentals.each do |rental|
+        puts "DATE: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}"
+      end
+    end
+  end
 end

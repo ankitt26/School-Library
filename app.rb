@@ -81,15 +81,21 @@ class App
   end
 
   def create_rental
-    puts 'Select a book from the following list by number'
-    list_book
-    book_no = gets.chomp.to_i
-    puts 'Select a person from the following list by number (not id)'
-    list_people
-    person_no = gets.chomp.to_i
-    print 'Date:'
-    date = gets.chomp
-    add_rental(book_no, person_no, date)
+    if @books.empty?
+      puts 'please add a book before adding a rental'
+    elsif @people.empty?
+      puts 'please add a person before adding a rental'
+    else
+      puts 'Select a book from the following list by number'
+      list_book
+      book_no = gets.chomp.to_i
+      puts 'Select a person from the following list by number (not id)'
+      list_people
+      person_no = gets.chomp.to_i
+      print 'Date:'
+      date = gets.chomp
+      add_rental(book_no, person_no, date)
+    end
   end
 
   def add_rental(book_no, person_no, date)

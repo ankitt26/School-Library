@@ -35,33 +35,42 @@ class App
     person_type = gets.chomp
 
     if person_type == '1'
-      print 'Enter student name: '
-      name = gets.chomp
-      print 'Enter student age: '
-      age = gets.chomp
-      print 'Does the student have parent permission? [Y/N]: '
-      parent_permission = gets.chomp
-
-      Student.new(age, name, parent_permission)
-      @people << Student.new(age, name, parent_permission)
-
-      puts 'student created successfully'
+      create_student
     elsif person_type == '2'
-      print 'Enter teacher name: '
-      name = gets.chomp
-
-      print 'Enter teacher Age: '
-      age = gets.chomp
-      print 'Enter teacher specialization: '
-      specialization = gets.chomp
-
-      Teacher.new(age, specialization, name)
-      @people << Teacher.new(age, specialization, name)
-
-      puts 'teacher created successfully'
+      create_teacher
     else
       puts 'wrong selection! select a valid option'
       create_person
     end
+  end
+
+  private
+
+  def create_student
+    print 'Enter student name: '
+    name = gets.chomp
+    print 'Enter student age: '
+    age = gets.chomp
+    print 'Does the student have parent permission? [Y/N]: '
+    parent_permission = gets.chomp
+
+    Student.new(age, name, parent_permission)
+    @people << Student.new(age, name, parent_permission)
+
+    puts 'student created successfully'
+  end
+
+  def create_teacher
+    print 'Enter teacher name: '
+    name = gets.chomp
+    print 'Enter teacher Age: '
+    age = gets.chomp
+    print 'Enter teacher specialization: '
+    specialization = gets.chomp
+
+    Teacher.new(age, specialization, name)
+    @people << Teacher.new(age, specialization, name)
+
+    puts 'teacher created successfully'
   end
 end

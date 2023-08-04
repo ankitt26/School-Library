@@ -15,18 +15,24 @@ class App
   end
 
   def create_book
-    puts 'enter book title'
+    puts 'Enter book title:'
     title = gets.chomp
-    puts 'enter book author'
+
+    puts 'Enter book author:'
     author = gets.chomp
-    Book.new(title, author)
-    @books << Book.new(title, author)
+
+    book = Book.new(title, author)
+    @books << book
     puts "#{title} by #{author} created"
   end
 
   def list_people
-    @people.each do |person|
-      puts person
+    @people.each_with_index do |person, index|
+      if person.is_a?(Student)
+        puts "#{index + 1}) [STUDENT] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      elsif person.is_a?(Teacher)
+        puts "#{index + 1}) [TEACHER] Name: #{person.name}, ID: #{person.id}, Age: #{person.age} "
+      end
     end
   end
 
@@ -39,7 +45,7 @@ class App
     elsif person_type == '2'
       create_teacher
     else
-      puts 'wrong selection! select a valid option'
+      puts 'Wrong selection! Select a valid option'
       create_person
     end
   end
@@ -52,12 +58,13 @@ class App
     print 'Enter student age: '
     age = gets.chomp
     print 'Does the student have parent permission? [Y/N]: '
-    parent_permission = gets.chomp
+    parent_permission = gets.chomp.upcase
 
-    Student.new(age, name, parent_permission)
-    @people << Student.new(age, name, parent_permission)
 
-    puts 'student created successfully'
+    student = Student.new(age, name, parent_permission)
+    @people << student
+
+    puts 'Student created successfully'
   end
 
   def create_teacher
@@ -68,9 +75,9 @@ class App
     print 'Enter teacher specialization: '
     specialization = gets.chomp
 
-    Teacher.new(age, specialization, name)
-    @people << Teacher.new(age, specialization, name)
+    teacher = Teacher.new(age, specialization, name)
+    @people << teacher
 
-    puts 'teacher created successfully'
+    puts 'Teacher created successfully'
   end
 end

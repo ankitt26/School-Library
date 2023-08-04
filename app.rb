@@ -102,4 +102,10 @@ class App
     @rentals << rental
     puts 'Rental created successfully'
   end
+
+  def list_rental
+    print 'ID of person:'
+    person_id = gets.chomp.to_i
+    get_rental(person_id)
+  end
 end

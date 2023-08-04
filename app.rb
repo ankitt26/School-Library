@@ -52,8 +52,6 @@ class App
     end
   end
 
-  private
-
   def create_student
     print 'Enter student name: '
     name = gets.chomp

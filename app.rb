@@ -79,4 +79,14 @@ class App
 
     puts 'Teacher created successfully'
   end
+
+  def create_rental
+    puts 'Select a book from the following list by number'
+    list_book
+    book_no = gets.chomp
+    puts 'Select a person from the following list by number (not id)'
+    list_people
+    person_no = gets.chomp
+    add_rental(book_no, person_no)
+  end
 end

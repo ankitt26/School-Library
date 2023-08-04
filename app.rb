@@ -9,8 +9,8 @@ class App
   end
 
   def list_book
-    @books.each do |book|
-      puts "#{book.title} by #{book.author}"
+    @books.each_with_index do |book, index|
+      puts "#{index + 1}) #{book.title} by #{book.author}"
     end
   end
 

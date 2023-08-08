@@ -5,22 +5,6 @@ class Main
     @app = App.new
   end
 
-  def start
-    loop do
-      display_menu
-      choice = user_input
-
-      if (1..6).include?(choice)
-        @app.user_choice(choice)
-      elsif choice == 7
-        puts 'Exiting....'
-        break
-      else
-        puts 'Invalid choice. Please try again.'
-      end
-    end
-  end
-
   def display_menu
     puts
     puts 'Please choose an option by entering a number:'
@@ -35,6 +19,22 @@ class Main
 
   def user_input
     gets.chomp.to_i
+  end
+
+  def start
+    loop do
+      display_menu
+      choice = user_input
+
+      if (1..6).include?(choice)
+        @app.user_choice(choice)
+      elsif choice == 7
+        puts 'Exiting....'
+        break
+      else
+        puts 'Invalid choice. Please try again.'
+      end
+    end
   end
 end
 

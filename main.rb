@@ -17,7 +17,7 @@ class Main
       if (1..6).include?(choice)
         user_choice(choice)
       elsif choice == 7
-        puts 'Exiting...'
+        puts 'Exiting....'
         break
       else
         puts 'Invalid choice. Please try again.'

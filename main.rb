@@ -15,7 +15,7 @@ class Main
       choice = user_input
 
       if (1..6).include?(choice)
-        user_choice(choice)
+        @app.user_choice(choice)
       elsif choice == 7
         puts 'Exiting....'
         break
@@ -39,23 +39,6 @@ class Main
 
   def user_input
     gets.chomp.to_i
-  end
-
-  def user_choice(choice)
-    case choice
-    when 1
-      @app.list_book
-    when 2
-      @app.list_people
-    when 3
-      @app.create_person
-    when 4
-      @app.create_book
-    when 5
-      @app.create_rental
-    when 6
-      @app.list_rental
-    end
   end
 end
 

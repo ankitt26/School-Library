@@ -1,9 +1,7 @@
-require_relative 'app'
+require_relative 'userinput'
 
 class Main
-  def initialize
-    @app = App.new
-  end
+  include UserInput
 
   def display_menu
     puts
@@ -27,7 +25,7 @@ class Main
       choice = user_input
 
       if (1..6).include?(choice)
-        @app.user_choice(choice)
+        user_choice(choice)
       elsif choice == 7
         puts 'Exiting....'
         break

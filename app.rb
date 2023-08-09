@@ -1,4 +1,4 @@
-
+require_relative 'load_data'
 require_relative 'savealldata'
 require_relative 'book'
 require_relative 'student'
@@ -8,14 +8,14 @@ require_relative 'rental'
 class App
   include LoadData
   def initialize
-    @books = []
+    @books = load_books
     @people = []
     @rentals = []
   end
 
   def list_book
     @books.each_with_index do |book, index|
-      puts "#{index + 1}) #{book.title} by #{book.author}"
+      puts "#{index + 1}) #{book[:title]} by #{book[:author]}"
     end
   end
 
@@ -30,7 +30,6 @@ class App
     book_hash = book.to_hash
     @books << book_hash
     puts "#{title} by #{author} created"
-    # binding.pry
   end
 
   def list_people

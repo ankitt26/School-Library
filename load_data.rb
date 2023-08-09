@@ -1,0 +1,9 @@
+require 'json'
+
+module LoadData
+  def load_books
+    file_path = './json/books.json'
+    file = File.read(file_path)
+    JSON.parse(file, symbolize_names: true)
+  end
+end

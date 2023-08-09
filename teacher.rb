@@ -6,6 +6,12 @@ class Teacher < Person
     @specialization = specialization
   end
 
+  def to_hash
+    { name: @name,
+      age: @age,
+      specialization: @specialization }
+  end
+
   def can_use_services?
     true
   end

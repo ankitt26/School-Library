@@ -65,7 +65,8 @@ class App
     parent_permission = gets.chomp.upcase
 
     student = Student.new(age, parent_permission, name)
-    @people << student
+    student_hash = student.to_hash
+    @people << student_hash
 
     puts 'Student created successfully'
   end

@@ -1,39 +1,43 @@
+require_relative 'load_data'
+require_relative 'savealldata'
 require_relative 'book'
 require_relative 'student'
 require_relative 'teacher'
 require_relative 'rental'
 
 class App
+  include LoadData
   def initialize
-    @books = []
-    @people = []
-    @rentals = []
+    @books = load_books || []
+    @people = load_person || []
+    @rentals = load_rentals || []
   end
 
   def list_book
     @books.each_with_index do |book, index|
-      puts "#{index + 1}) #{book.title} by #{book.author}"
+      puts "#{index + 1}) #{book[:title]} by #{book[:author]}"
     end
   end
 
   def create_book
     puts 'Enter book title:'
     title = gets.chomp
-
     puts 'Enter book author:'
     author = gets.chomp
 
     book = Book.new(title, author)
-    @books << book
+    book_hash = book.to_hash
+    @books << book_hash
+
     puts "#{title} by #{author} created"
   end
 
   def list_people
     @people.each_with_index do |person, index|
-      if person.is_a?(Student)
-        puts "#{index + 1}) [STUDENT] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-      elsif person.is_a?(Teacher)
-        puts "#{index + 1}) [TEACHER] Name: #{person.name}, ID: #{person.id}, Age: #{person.age} "
+      if person[:type] == 'Student'
+        puts "#{index + 1}) [STUDENT] Name: #{person[:name]}, ID: #{person[:id]}, Age: #{person[:age]}"
+      elsif person[:type] == 'Teacher'
+        puts "#{index + 1}) [TEACHER] Name: #{person[:name]}, ID: #{person[:id]}, Age: #{person[:age]} "
       end
     end
   end
@@ -61,7 +65,8 @@ class App
     parent_permission = gets.chomp.upcase
 
     student = Student.new(age, parent_permission, name)
-    @people << student
+    student_hash = student.to_hash
+    @people << student_hash
 
     puts 'Student created successfully'
   end
@@ -75,7 +80,8 @@ class App
     specialization = gets.chomp
 
     teacher = Teacher.new(age, specialization, name)
-    @people << teacher
+    teacher_hash = teacher.to_hash
+    @people << teacher_hash
 
     puts 'Teacher created successfully'
   end
@@ -103,7 +109,9 @@ class App
     person = @people[person_no - 1]
 
     rental = Rental.new(date, book, person)
-    @rentals << rental
+    rental_hash = rental.to_hash
+    @rentals << rental_hash
+
     puts 'Rental created successfully'
   end
 
@@ -114,14 +122,18 @@ class App
   end
 
   def get_rental(person_id)
-    rentals = @rentals.select { |rental| rental.person.id == person_id }
+    rentals = @rentals.select { |rental| rental[:person][:id] == person_id }
     if rentals.empty?
       puts 'No rentals found for the specified person ID.'
     else
       puts 'Rentals:'
       rentals.each do |rental|
-        puts "DATE: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}"
+        puts "DATE: #{rental[:date]}, Book: #{rental[:book][:title]} by #{rental[:book][:author]}"
       end
     end
+  end
+
+  def save_data_to_files
+    SaveAllData.new(@books, @people, @rentals)
   end
 end

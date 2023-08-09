@@ -21,4 +21,8 @@ module UserInput
       @app.list_rental
     end
   end
+
+  def save_all_data
+    @app.save_data_to_files
+  end
 end

@@ -12,7 +12,7 @@ class Main
     puts '4 - Create a book'
     puts '5 - Create a rental'
     puts '6 - List all rentals for a given person id'
-    puts '7 - Exit'
+    puts '7 - Save/Exit'
   end
 
   def user_input
@@ -27,7 +27,7 @@ class Main
       if (1..6).include?(choice)
         user_choice(choice)
       elsif choice == 7
-        puts 'Exiting....'
+        save_all_data
         break
       else
         puts 'Invalid choice. Please try again.'

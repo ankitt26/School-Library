@@ -58,6 +58,7 @@ The `person.rb` file contains the base class for all users. The `student.rb` fil
 
 - **User can set and get student details**
 - **user can set and get the teacher details**
+- **user can save and load data from json files**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -98,7 +99,7 @@ Install this project with:
 To run the project, execute the following command:
 
 ```sh
-  ruby test.rb
+  ruby main.rb
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

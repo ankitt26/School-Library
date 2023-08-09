@@ -1,9 +1,12 @@
+
+require_relative 'savealldata'
 require_relative 'book'
 require_relative 'student'
 require_relative 'teacher'
 require_relative 'rental'
 
 class App
+  include LoadData
   def initialize
     @books = []
     @people = []
@@ -24,8 +27,10 @@ class App
     author = gets.chomp
 
     book = Book.new(title, author)
-    @books << book
+    book_hash = book.to_hash
+    @books << book_hash
     puts "#{title} by #{author} created"
+    # binding.pry
   end
 
   def list_people
@@ -123,5 +128,9 @@ class App
         puts "DATE: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}"
       end
     end
+  end
+
+  def save_data_to_files
+    SaveAllData.new(@books, @people, @rentals)
   end
 end

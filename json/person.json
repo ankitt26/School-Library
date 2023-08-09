@@ -1,1 +1,1 @@
-[{"name":"Ankit","age":"34","id":897,"type":"Student","parent_permission":"Y","rentals":["#<Rental:0x0000012bcf31e740>"]}]
+[{"name":"Ankit","age":"34","id":897,"type":"Student","parent_permission":"Y","rentals":["#<Rental:0x0000012bcf31e740>"]},{"name":"John","age":"45","id":6,"type":"Student","parent_permission":"N"},{"name":"Mewr","age":"34","id":630,"type":"Teacher","specialization":"biology","rentals":["#<Rental:0x000001fb1024dd78>"]}]

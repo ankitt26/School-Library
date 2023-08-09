@@ -8,9 +8,9 @@ require_relative 'rental'
 class App
   include LoadData
   def initialize
-    @books = load_books
-    @people = load_person
-    @rentals = load_rentals
+    @books = load_books || []
+    @people = load_person || []
+    @rentals = load_rentals || []
   end
 
   def list_book

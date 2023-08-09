@@ -9,6 +9,7 @@ class Teacher < Person
   def to_hash
     { name: @name,
       age: @age,
+      id: @id,
       type: @type,
       specialization: @specialization }
   end

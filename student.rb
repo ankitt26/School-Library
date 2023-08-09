@@ -11,6 +11,7 @@ class Student < Person
   def to_hash
     { name: @name,
       age: @age,
+      id: @id,
       type: @type,
       parent_permission: @parent_permission }
   end

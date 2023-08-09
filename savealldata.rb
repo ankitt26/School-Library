@@ -28,4 +28,13 @@ class SaveAllData
     end
     File.write(file_path, JSON.generate(person_data))
   end
+
+  def save_rentals
+    file_path = './json/rental.json'
+    rental_data = []
+    @rentals.each do |rental|
+      rental_data << rental
+    end
+    File.write(file_path, JSON.generate(rental_data))
+  end
 end

@@ -12,4 +12,10 @@ module LoadData
     file = File.read(file_path)
     JSON.parse(file, symbolize_names: true)
   end
+
+  def load_rentals
+    file_path = './json/rental.json'
+    file = File.read(file_path)
+    JSON.parse(file, symbolize_names: true)
+  end
 end

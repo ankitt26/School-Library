@@ -9,7 +9,7 @@ class App
   include LoadData
   def initialize
     @books = load_books
-    @people = []
+    @people = load_person
     @rentals = []
   end
 
@@ -34,10 +34,10 @@ class App
 
   def list_people
     @people.each_with_index do |person, index|
-      if person.is_a?(Student)
-        puts "#{index + 1}) [STUDENT] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-      elsif person.is_a?(Teacher)
-        puts "#{index + 1}) [TEACHER] Name: #{person.name}, ID: #{person.id}, Age: #{person.age} "
+      if person[:type] == 'Student'
+        puts "#{index + 1}) [STUDENT] Name: #{person[:name]}, ID: #{person[:id]}, Age: #{person[:age]}"
+      elsif person[:type] == 'Teacher'
+        puts "#{index + 1}) [TEACHER] Name: #{person[:name]}, ID: #{person[:id]}, Age: #{person[:age]} "
       end
     end
   end

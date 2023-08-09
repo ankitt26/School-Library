@@ -80,7 +80,8 @@ class App
     specialization = gets.chomp
 
     teacher = Teacher.new(age, specialization, name)
-    @people << teacher
+    teacher_hash = teacher.to_hash
+    @people << teacher_hash
 
     puts 'Teacher created successfully'
   end

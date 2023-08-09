@@ -8,6 +8,7 @@ class SaveAllData
     @rentals = rentals
 
     save_books
+    save_person
   end
 
   def save_books

@@ -10,7 +10,7 @@ class App
   def initialize
     @books = load_books
     @people = load_person
-    @rentals = []
+    @rentals = load_rentals
   end
 
   def list_book
@@ -106,10 +106,15 @@ class App
 
   def add_rental(book_no, person_no, date)
     book = @books[book_no - 1]
+    
     person = @people[person_no - 1]
-
+   
     rental = Rental.new(date, book, person)
-    @rentals << rental
+    puts rental
+    rental_hash = rental.to_hash
+    puts rental_hash
+    @rentals << rental_hash
+   
     puts 'Rental created successfully'
   end
 
@@ -120,13 +125,13 @@ class App
   end
 
   def get_rental(person_id)
-    rentals = @rentals.select { |rental| rental.person.id == person_id }
+    rentals = @rentals.select { |rental| rental[:person][:id] == person_id }
     if rentals.empty?
       puts 'No rentals found for the specified person ID.'
     else
       puts 'Rentals:'
       rentals.each do |rental|
-        puts "DATE: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}"
+        puts "DATE: #{rental[:date]}, Book: #{rental[:book][:title]} by #{rental[:book][:author]}"
       end
     end
   end

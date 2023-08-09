@@ -9,6 +9,7 @@ class SaveAllData
 
     save_books
     save_person
+    save_rentals
   end
 
   def save_books
@@ -30,7 +31,7 @@ class SaveAllData
   end
 
   def save_rentals
-    file_path = './json/rental.json'
+    file_path = './json/rentals.json'
     rental_data = []
     @rentals.each do |rental|
       rental_data << rental

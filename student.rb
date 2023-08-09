@@ -8,6 +8,12 @@ class Student < Person
     super(age, name, parent_permission: parent_permission)
   end
 
+  def to_hash
+    { name: @name,
+      age: @age,
+      parent_permission: @parent_permission }
+  end
+
   def classroom=(classroom)
     @classroom = classroom
     classroom.students.push(self) unless classroom.students.include?(self)

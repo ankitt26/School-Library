@@ -8,6 +8,12 @@ class Book
     @rentals = []
   end
 
+  def to_hash
+    { title: @title,
+      author: @author,
+      rentals: @rentals }
+  end
+
   def add_rental(rental)
     @rentals << rental
   end

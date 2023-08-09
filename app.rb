@@ -22,13 +22,13 @@ class App
   def create_book
     puts 'Enter book title:'
     title = gets.chomp
-
     puts 'Enter book author:'
     author = gets.chomp
 
     book = Book.new(title, author)
     book_hash = book.to_hash
     @books << book_hash
+
     puts "#{title} by #{author} created"
   end
 
@@ -106,15 +106,12 @@ class App
 
   def add_rental(book_no, person_no, date)
     book = @books[book_no - 1]
-    
     person = @people[person_no - 1]
-   
+
     rental = Rental.new(date, book, person)
-    puts rental
     rental_hash = rental.to_hash
-    puts rental_hash
     @rentals << rental_hash
-   
+
     puts 'Rental created successfully'
   end
 

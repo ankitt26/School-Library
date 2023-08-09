@@ -9,11 +9,9 @@ class Rental
     @book = book
     @person = person
 
-
     @book[:rentals] ||= []
     @book[:rentals] << self
 
-   
     @person[:rentals] ||= []
     @person[:rentals] << self
   end

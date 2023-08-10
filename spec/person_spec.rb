@@ -33,4 +33,16 @@ describe Person do
       expect(@person.can_use_services?).to eq(true)
     end
   end
+
+  describe '#can_use_services?' do
+    context 'when age is smaller than 18' do
+      before(:each) do
+        @person.age = 12
+      end
+
+      it 'check if age is smaller than 18' do
+        expect(@person.can_use_services?).to eq(false)
+      end
+    end
+  end
 end

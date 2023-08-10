@@ -25,6 +25,7 @@
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Install](#install)
+    - [Run tests](#run-tests)
     - [Usage](#usage)
   - [👥 Authors ](#-authors-)
   - [🔭 Future Features ](#-future-features-)
@@ -93,6 +94,16 @@ Install this project with:
   cd my-project
   bundle install
 ```
+
+
+### Run tests
+
+To run tests, run the following command:
+
+```sh
+rspec spec
+```
+
 
 ### Usage
 

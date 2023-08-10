@@ -1,4 +1,4 @@
-require_relative 'userinput'
+require_relative 'library/user_input'
 
 class Main
   include UserInput

@@ -24,7 +24,7 @@ describe Person do
 
   describe '#correct_name' do
     it 'return the name' do
-      expect(@person.correct_name).to eq(@person.name)
+      expect(@person.correct_name).to eq('Jack')
     end
   end
 

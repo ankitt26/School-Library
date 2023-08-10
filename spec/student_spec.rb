@@ -1,5 +1,4 @@
 require_relative '../library/student'
-require_relative '../library/classroom'
 describe Student do
   before(:each) do
     @student = Student.new(23, 'Y', 'Doe')
@@ -17,7 +16,6 @@ describe Student do
   describe '#classroom' do
     it 'adds a classroom label' do
       classroom = Classroom.new('Math101')
-      # Create a classroom instance
       @student.classroom = classroom
 
       expect(classroom.students).to include(@student) # Check if student is added to the classroom

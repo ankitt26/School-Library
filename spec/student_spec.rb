@@ -12,7 +12,6 @@ describe Student do
     end
   end
 
-
   describe '#classroom' do
     it 'adds a classroom label' do
       classroom = Classroom.new('Math101')

@@ -12,7 +12,6 @@ describe Classroom do
     end
   end
 
-
   describe '#add_student' do
     it 'adds a student to the classroom' do
       student = double('student1')
